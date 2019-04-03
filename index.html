@@ -20,6 +20,8 @@
 
 <br>
 
+<p id="absolute">Absolute:</p>
+
 <p id="alpha">Alpha:</p>
 <p id="beta">Beta:</p>
 <p id="gamma">Gamma:</p>
@@ -45,6 +47,8 @@ function showPosition(position) {
 </script>
 
 <script>
+	var abs = document.getElementById("absolute");
+
 	var a = document.getElementById("alpha");
 	var b = document.getElementById("beta");
 	var g = document.getElementById("gamma");
@@ -52,9 +56,14 @@ function showPosition(position) {
 window.addEventListener("deviceorientation", handleOrientation, true);
 
 function handleOrientation(event) {
+
+	var absolute = event.absolute;
+
   var alpha = event.alpha;
   var beta = event.beta;
   var gamma = event.gamma;
+
+  abs.innerHTML = "alpha " + absolute;
 
   a.innerHTML = "alpha " + alpha;
   b.innerHTML = "beta " + beta;
